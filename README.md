@@ -125,9 +125,11 @@ Currently seeking remote backend roles & freelance projects
     </tr>
   </table>
 </div> -->
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
+<div align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kaziiriad&layout=compact&theme=dark" alt="Top Languages" />
+  <br><br>
   <img src="https://github-readme-stats.vercel.app/api?username=kaziiriad&show_icons=true&theme=dark&count_private=true" alt="GitHub Stats" />
+  <br><br>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=kaziiriad&theme=dark" alt="GitHub Streak" />
 </div>
 
