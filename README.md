@@ -1,43 +1,44 @@
 # Hi there, I'm Sultan Mahmud 👋
 
-## 🚀 Backend Developer | System Architect | Problem Solver
+## 🚀 Backend Developer | Python Specialist | Distributed Systems Enthusiast
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-username)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaziiriad@gmail.com)
-[![Quora](https://img.shields.io/badge/Quora-B92B27?style=for-the-badge&logo=quora&logoColor=white)](https://bn.quora.com/profile/Kazi-Sultan-Mahmud-Riad)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/channel/your-channel)
+**Building scalable cloud systems with Python, AWS, and Docker**
 
-> Passionate backend developer with expertise in building scalable, high-performance systems. I specialize in creating robust APIs, distributed systems, and cloud-native applications that can handle real-world complexity.
+Currently seeking remote backend roles & freelance projects
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/sultan-mahmud-b25b25130/)
+[![Email](https://img.shields.io/badge/Hire_Me!-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaziiriad@gmail.com)
+![Open to Work](https://img.shields.io/badge/Open_to_Remote-6f42c1?style=for-the-badge)
+[![Upwork](https://img.shields.io/badge/UpWork-Freelance-6FDA44?style=for-the-badge&logo=Upwork&logoColor=green)](https://www.upwork.com/freelancers/~01018d7f165a0de159)
+[![Resume](https://img.shields.io/badge/Resume-Download-4CAF50?style=for-the-badge)](https://docs.google.com/document/d/1eiou6NCl408uRhqx-_GazGj_YBPiKtliEkBcOPL95iI/edit?tab=t.0)
+
+## 💼 Current Status
+
+- 🔍 **Open to:** Remote backend positions & freelance projects
+- 🚀 **Focus:** Python development with cloud infrastructure (AWS/Docker)
+---
+## 🏆 Core Competencies
+
+### 💻 Backend Development
+![Python](https://img.shields.io/badge/Python-Expert-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Pro-005571?style=flat&logo=fastapi)
+![Django](https://img.shields.io/badge/Django-Intermediate-092E20?style=flat&logo=django&logoColor=white)
+
+
+### ☁️ Cloud & Infrastructure
+![AWS](https://img.shields.io/badge/AWS-EC2/S3/ASG-232F3E?style=flat&logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?style=flat&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-Load_Balancer-009639?style=flat&logo=nginx&logoColor=white)
+
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-Message_Broker-FF6600?style=flat&logo=rabbitmq&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-Task_Queues-37B24D?style=flat&logo=celery&logoColor=white)
+![IaC](https://img.shields.io/badge/Infrastructure_as_Code-Pulumi/Ansible-EE0000?style=flat)
+
+### 🗄️ Data Management
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?style=flat&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-Caching/Queues-DC382D?style=flat&logo=redis&logoColor=white)
 ---
 
-## 🛠️ Tech Stack & Expertise
-
-### 💻 Languages & Frameworks
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![DjangoREST](https://img.shields.io/badge/Django_REST-ff1709?style=for-the-badge&logo=django&logoColor=white)
-
-### ☁️ Cloud & DevOps
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white)
-![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)
-
-### 🗄️ Databases & Caching
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-
-### 🔧 Tools & Technologies
-![Celery](https://img.shields.io/badge/Celery-37B24D?style=for-the-badge&logo=celery&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
-![FFMPEG](https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)
-
----
 
 ## 🌟 Featured Projects
 
@@ -81,16 +82,17 @@
 - Created comprehensive error handling with retry mechanisms
 - Added job dependency management for complex workflows
 
-**Tech Stack:** `FastAPI` `Redis` `Docker Swarm` `Job Queuing`
+**Tech Stack:** `FastAPI` `Redis` `Docker Swarm` `Jinja2`
 
 ---
 
 ## 💼 Professional Experience
 
-**Backend Developer Intern** @ Cooking Station *(June 2024 - August 2024)*
-- Designed admin dashboard with role-based access for 200+ users
-- Implemented automated meal scheduling system with cron jobs
-- Reduced manual effort by 40% through automation
+**Backend Developer Intern** @ Cooking Station *(June 2024 - August 2024)*  
+✅ Designed RBAC dashboard for **200+ users**  
+✅ Automated 40% of manual account processes  
+✅ Built real-time meal analytics system
+
 
 ---
 
@@ -98,9 +100,10 @@
 
 <!-- <div align="center">
   
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=kaziiriad&show_icons=true&theme=dark&count_private=true)
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kaziiriad&layout=compact&theme=dark)
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=kaziiriad&show_icons=true&theme=dark&count_private=true)
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=kaziiriad&theme=dark)
 
@@ -123,8 +126,8 @@
   </table>
 </div> -->
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px;">
-  <img src="https://github-readme-stats.vercel.app/api?username=kaziiriad&show_icons=true&theme=dark&count_private=true" alt="GitHub Stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kaziiriad&layout=compact&theme=dark" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=kaziiriad&show_icons=true&theme=dark&count_private=true" alt="GitHub Stats" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=kaziiriad&theme=dark" alt="GitHub Streak" />
 </div>
 
@@ -169,7 +172,11 @@
 
 ## 📫 Let's Connect!
 
-I'm always interested in discussing technology, system architecture, and opportunities to build amazing things together!
+Let's build something amazing together! Whether you're looking for a backend developer to join your team or need help with a complex Python project, I'm here to help.
+
+**I'm actively seeking:**  
+🚀 Remote backend engineering roles  
+💼 Complex Python/AWS freelance projects  
 
 - 📧 **Email:** kaziiriad@gmail.com
 - 📱 **Phone:** +880 1683152495
