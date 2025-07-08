@@ -44,16 +44,14 @@ Currently seeking remote backend roles & freelance projects
 
 ### 💰 [Installment Manager System](https://github.com/kaziiriad/installment_manager)
 **Full-stack financial management application for tracking installments and payments**
-- Built modern React frontend with TypeScript and shadcn-ui components
-- Developed FastAPI backend with SQLAlchemy ORM and PostgreSQL database
-- Implemented automated due notification via email with Celery and Redis
-- Created secure user registration system with OTP verification
-- Responsive UI with Tailwind CSS for optimal user experience
-- Integrated Redis for caching and session management
-- Containerized application with Docker for easy deployment
-- Database migrations managed with Alembic for version control
+- **Backend:** High-performance API built with `FastAPI`, using `SQLAlchemy` for ORM with a `PostgreSQL` database.
+- **Frontend:** Modern and responsive UI built with `React`, `TypeScript`, and `Vite`, styled with `Tailwind CSS` and `Shadcn UI`.
+- **Asynchronous Tasks:** `Celery` and `Redis` manage background jobs like sending OTP and due date notification emails.
+- **Authentication:** Secure JWT-based authentication with role-based access for customers and admins.
+- **Data Management:** `Alembic` handles database schema migrations, and `TanStack Query` manages server state on the frontend.
+- **DevOps:** Fully containerized with `Docker` and `Docker Compose` for reproducible development and deployment environments.
 
-**Tech Stack:** `FastAPI` `React` `TypeScript` `PostgreSQL` `SQLAlchemy` `Redis` `Celery` `Docker` `Tailwind CSS` `shadcn-ui` `Alembic`
+**Tech Stack:** `FastAPI` `React` `TypeScript` `PostgreSQL` `SQLAlchemy` `Redis` `Celery` `Docker` `Tailwind CSS` `Shadcn UI` `Alembic`
 
 ### 🚀 [Scalable Multi-Channel Notification System](https://github.com/kaziiriad/notification_system)
 **Real-time notification system for multiple channels**
@@ -88,11 +86,12 @@ Currently seeking remote backend roles & freelance projects
 
 ### ⚡ [Distributed Job Queue System](https://github.com/kaziiriad/job-queue-system-2.0)
 **Scalable job processing system with advanced features**
-- Developed priority-based queues with automatic worker scaling
-- Built real-time monitoring dashboard with FastAPI and Jinja2
-- Implemented containerized deployment with Docker Swarm
-- Created comprehensive error handling with retry mechanisms
-- Added job dependency management for complex workflows
+- **Developed a distributed job queue system** using `FastAPI` and `Redis` to manage asynchronous tasks with priority-based queuing and automatic worker scaling.
+- **Implemented a real-time monitoring dashboard** with `Jinja2` templates to provide visibility into job status, queue metrics, and worker activity.
+- **Engineered an automatic worker scaling mechanism** based on job load and worker availability, using `Docker Swarm` to dynamically adjust resources.
+- **Created a comprehensive error handling and fault tolerance system**, including automatic retries for failed jobs and a dead-letter queue for unrecoverable tasks.
+- **Designed a job dependency feature** to ensure complex workflows are executed in the correct order, improving system reliability.
+- **Containerized all services** (`API`, `Worker`, `Monitor`) using `Docker` for consistent deployment and simplified management.
 
 **Tech Stack:** `FastAPI` `Redis` `Docker Swarm` `Jinja2`
 
