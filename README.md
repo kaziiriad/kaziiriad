@@ -66,8 +66,8 @@ Currently seeking remote backend roles & freelance projects
 
 **Tech Stack:** `FastAPI` `Celery` `PostgreSQL` `RabbitMQ` `Redis` `Alembic` `SQLAlchemy` `Docker` `Pytest`
 
-### 🎬 [StreamBuddy: Full-Stack Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy)
-**Advanced video streaming solution with adaptive bitrate technology**
+### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy)
+**Full-Stack advanced video streaming solution with adaptive bitrate technology**
 
   - **Engineered a secure and scalable video platform** with a `Django REST API` and a `React/TypeScript` frontend, architected for high-performance adaptive streaming.
   - **Implemented a robust security model**, using `dj-rest-auth` for token-based authentication and a protected media workflow (via Nginx `X-Accel-Redirect`) to ensure only authorized users can access streaming content.
