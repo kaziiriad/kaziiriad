@@ -55,14 +55,26 @@ Currently seeking remote backend roles & freelance projects
 
 **Tech Stack:** `FastAPI` `React` `TypeScript` `PostgreSQL` `SQLAlchemy` `Redis` `Celery` `Docker` `Tailwind CSS` `shadcn-ui` `Alembic`
 
-### 🎬 [Video Streaming Platform with DASH Support](https://github.com/kaziiriad/streambuddy)
-**Advanced video streaming solution with adaptive bitrate technology**
-- Built scalable Django REST API with AWS S3 integration
-- Implemented asynchronous video processing using Celery/Redis
-- Achieved 60-80% file size reduction while maintaining 85-90% quality
-- Created comprehensive API documentation with Swagger/OpenAPI
+### 🚀 [Scalable Multi-Channel Notification System](https://github.com/kaziiriad/notification_system)
+**Real-time notification system for multiple channels**
+  - **Modern Backend:** Built with Python and FastAPI for high-performance, asynchronous API endpoints.
+  - **Multi-Channel Delivery:** Supports sending notifications through various channels like Email, SMS, and Push Notifications.
+  - **Asynchronous & Scalable:** Leverages Celery and RabbitMQ for background task processing, ensuring the system can handle high-volume loads without blocking.
+  - **Robust Data Storage:** Uses PostgreSQL for reliable data persistence, managed with Alembic for smooth database migrations.
+  - **Containerized Environment:** Fully containerized with Docker and Docker Compose for consistent development, testing, and deployment.
+  - **Comprehensive Testing:** Includes a full suite of tests using pytest to ensure code quality and reliability.
 
-**Tech Stack:** `Django REST` `Celery` `Redis` `AWS S3` `FFMPEG` `DASH`
+**Tech Stack:** `FastAPI` `Celery` `PostgreSQL` `RabbitMQ` `Redis` `Alembic` `SQLAlchemy` `Docker` `Pytest`
+
+### 🎬 [StreamBuddy: Full-Stack Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy)
+**Advanced video streaming solution with adaptive bitrate technology**
+
+  - **Engineered a secure and scalable video platform** with a `Django REST API` and a `React/TypeScript` frontend, architected for high-performance adaptive streaming.
+  - **Implemented a robust security model**, using `dj-rest-auth` for token-based authentication and a protected media workflow (via Nginx `X-Accel-Redirect`) to ensure only authorized users can access streaming content.
+  - **Built an asynchronous video processing pipeline** using `Celery`, `Redis`, and `FFMPEG` to transcode videos for `DASH` playback, ensuring a smooth, low-latency user experience.
+  - **Automated the entire cloud workflow**, from provisioning `AWS S3` infrastructure with `Pulumi` and configuring servers with `Ansible`, to deploying the `Docker`-containerized application via `GitHub Actions`.
+  
+  **Tech Stack:** `Django` `React` `Celery` `Redis` `PostgreSQL` `FFMPEG` `DASH` `AWS S3` `Nginx` `Docker` `Pulumi` `Ansible`    
 
 ### 🔄 [Highly Available Task Management System](https://github.com/kaziiriad/todo_application)
 **Enterprise-grade Todo application with AWS infrastructure**
