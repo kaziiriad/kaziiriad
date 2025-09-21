@@ -42,6 +42,17 @@ Currently seeking remote backend roles & freelance projects
 
 ## 🌟 Featured Projects
 
+### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable)
+**High-performance URL shortener with dual database architecture and AWS infrastructure**
+- **Engineered a scalable microservice** using `FastAPI` with `Redis` caching for lightning-fast redirects and `PostgreSQL` for key management alongside `MongoDB` for URL storage.
+- **Implemented intelligent key pre-population system** using `Celery` workers to maintain a pool of unused short URL keys for instant URL creation without database latency.
+- **Built comprehensive load balancing solution** with `Nginx` featuring rate limiting, caching, and traffic distribution across multiple application instances for high availability.
+- **Automated AWS infrastructure deployment** using `Pulumi` for Infrastructure as Code and `Ansible` for configuration management, including VPC setup, security groups, and bastion host access.
+- **Designed fault-tolerant architecture** with background task processing, automated cleanup jobs, and comprehensive monitoring via `Celery Flower` dashboard.
+- **Implemented comprehensive testing framework** using `pytest` with mocking for unit/integration tests and `Docker Compose` for multi-service orchestration.
+
+**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `Pulumi` `Ansible` `AWS`
+
 ### 💰 [Installment Manager System](https://github.com/kaziiriad/installment_manager)
 **Full-stack financial management application for tracking installments and payments**
 - **Backend:** High-performance API built with `FastAPI`, using `SQLAlchemy` for ORM with a `PostgreSQL` database.
@@ -94,6 +105,7 @@ Currently seeking remote backend roles & freelance projects
 - **Containerized all services** (`API`, `Worker`, `Monitor`) using `Docker` for consistent deployment and simplified management.
 
 **Tech Stack:** `FastAPI` `Redis` `Docker Swarm` `Jinja2`
+
 
 ---
 
