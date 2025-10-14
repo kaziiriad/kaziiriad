@@ -16,7 +16,7 @@
 🔍 **Actively seeking:** Remote backend engineering positions  
 🚀 **Specialization:** Python backend + DevOps automation + Distributed systems  
 📍 **Location:** Dhaka, Bangladesh (Open to worldwide remote)  
-💬 **Ask me about:** FastAPI, System Design, AWS Infrastructure, Kubernetes
+💬 **Ask me about:** FastAPI, System Design, AWS Infrastructure
 
 ---
 ## 🎯 What Sets Me Apart
