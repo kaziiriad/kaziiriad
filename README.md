@@ -46,6 +46,7 @@ I don't just write backend code—I architect complete production systems with *
 ![Docker](https://img.shields.io/badge/Docker-Expert-2496ED?style=flat&logo=docker&logoColor=white)
 ![Nginx](https://img.shields.io/badge/Nginx-Load_Balancing-009639?style=flat&logo=nginx&logoColor=white)
 ![CI/CD](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?style=flat&logo=github-actions)
+![PgBouncer](https://img.shields.io/badge/PgBouncer-Connection_Pooling-336791?style=flat)
 
 ### **Distributed Systems**
 ![Celery](https://img.shields.io/badge/Celery-Task_Queues-37B24D?style=flat&logo=celery&logoColor=white)
@@ -57,6 +58,12 @@ I don't just write backend code—I architect complete production systems with *
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Advanced-336791?style=flat&logo=postgresql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Proficient-47A248?style=flat&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-Expert-DC382D?style=flat&logo=redis&logoColor=white)
+
+### **Observability & Monitoring**
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-Tracing-000000?style=flat&logo=opentelemetry)
+![Grafana](https://img.shields.io/badge/Grafana-Visualization-F46800?style=flat&logo=grafana&logoColor=white)
+![Tempo](https://img.shields.io/badge/Tempo-Trace_Storage-F46800?style=flat)
+![Prometheus](https://img.shields.io/badge/Prometheus-Metrics-E6522C?style=flat&logo=prometheus&logoColor=white)
 
 ---
 
@@ -78,18 +85,20 @@ I don't just write backend code—I architect complete production systems with *
 ### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥇
 **Most Complex Project - Full Infrastructure Automation**
 
-**High-performance URL shortener with dual database architecture and AWS infrastructure**
-- **Engineered a scalable microservice** using `FastAPI` with `Redis` caching for lightning-fast redirects and `PostgreSQL` for key management alongside `MongoDB` for URL storage.
+**High-performance URL shortener with dual database architecture and production K3s deployment**
+- **Architected microservices** separating redirect service (read-heavy, **95% traffic**) from create service (write-heavy) with independent scaling capability and service-specific resource allocation.
+- **Implemented Redis-first caching** with MongoDB fallback and Nginx proxy routing, targeting **sub-5ms redirect latency** for optimal user experience.
+- **Optimized PostgreSQL operations** using atomic key acquisition with `SELECT FOR UPDATE SKIP LOCKED` for race-free distributed key allocation and parameterized bulk inserts.
+- **Implemented comprehensive observability solution** using `OpenTelemetry` for distributed tracing with context propagation, integrated with `Tempo` for trace storage and `Grafana` for visualization to monitor system performance and debug issues across microservices.
+- **Deployed production K3s cluster on AWS** using `Pulumi` IaC and `Ansible` with path-based Nginx routing, per-service rate limiting, and CI/CD pipeline via `GitHub Actions`.
+- **Engineered fault-tolerant architecture** with `PgBouncer` connection pooling achieving **53% reduction** in database connection overhead, circuit breakers, and retry mechanisms ensuring high availability.
 - **Implemented intelligent key pre-population system** using `Celery` workers to maintain a pool of unused short URL keys for instant URL creation without database latency.
-- **Built comprehensive load balancing solution** with `Nginx` featuring rate limiting, caching, and traffic distribution across multiple application instances for high availability.
-- **Automated AWS infrastructure deployment** using `Pulumi` for Infrastructure as Code and `Ansible` for configuration management, including VPC setup, security groups, and bastion host access.
-- **Designed fault-tolerant architecture** with background task processing, automated cleanup jobs, and comprehensive monitoring via `Celery Flower` dashboard.
-- **Implemented comprehensive testing framework** using `pytest` with mocking for unit/integration tests and `Docker Compose` for multi-service orchestration.
+- **Automated AWS infrastructure deployment** with VPC setup, security groups, bastion host access, and comprehensive monitoring via `Celery Flower` dashboard.
 
-**Technical Deep Dive:** [Read my Medium article](https://medium.com/@kazisultanmahmud/building-a-scalable-url-shortener-from-system-design-to-production-ready-microservice-b2ebf8790e84)
+**Technical Deep Dive:** [Read my Medium articles](https://medium.com/@kazisultanmahmud/)
 
 
-**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `Pulumi` `Ansible` `AWS`
+**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Grafana` `PgBouncer` `GitHub Actions`
 
 **Key Learnings:**
 - Infrastructure as Code best practices
@@ -260,7 +269,6 @@ Daffodil International University | September 2017 - December 2022
 ## 🌱 Currently Learning
 
 - 🐳 **Kubernetes** - Container orchestration at scale
-- 📊 **Observability** - Prometheus, Grafana, OpenTelemetry
 ---
 
 ## 🤝 Let's Collaborate!
