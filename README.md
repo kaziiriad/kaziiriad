@@ -8,7 +8,7 @@
 [![Email](https://img.shields.io/badge/Hire_Me!-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaziiriad@gmail.com)
 ![Open to Work](https://img.shields.io/badge/Open_to_Remote-6f42c1?style=for-the-badge)
 [![Medium](https://img.shields.io/badge/Medium-Technical_Writing-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@kazisultanmahmud)
-[![Resume](https://img.shields.io/badge/Resume-Download-4CAF50?style=for-the-badge)](https://docs.google.com/document/d/1eiou6NCl408uRhqx-_GazGj_YBPiKtliEkBcOPL95iI/edit?tab=t.0)
+[![Resume](https://img.shields.io/badge/Resume-Download-4CAF50?style=for-the-badge)](Sultan_Mahmud_CV_Latest.pdf)
 
 ---
 
@@ -110,33 +110,33 @@ I don't just write backend code—I architect complete production systems with *
 - Automated deployment pipelines
 ---
 
-### 🔄 [K3s Docker Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
-**Most Complex Infrastructure Project - Advanced Container Orchestration**
+### 🔄 [K3s Custom Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
+**Most Complex Infrastructure Project - Kubernetes-Centric Autoscaling**
 
-**Prototype autoscaler that dynamically adds/removes Docker containers running k3s worker nodes based on Prometheus metrics**
+**Prototype Kubernetes autoscaler that dynamically adds/removes worker nodes based on Prometheus metrics (Docker used for local testing only)**
 
-- **Built advanced container orchestration prototype** using Python with atomic scaling operations ensuring consistency across Docker containers, K3s nodes, and MongoDB storage layers.
-- **Implemented comprehensive monitoring stack** with `Prometheus` metrics collection, `Grafana` dashboards, `Node Exporter`, `AlertManager`, and custom metrics endpoints for complete system observability.
-- **Engineered intelligent autoscaling logic** with configurable CPU/memory thresholds, pending pod detection via `kube-state-metrics`, and Redis-based cooldown management to prevent scaling thrashing.
-- **Designed fault-tolerant architecture** with `Kubernetes API` integration for node lifecycle management, graceful pod eviction before worker removal, and automatic rollback mechanisms on failures.
-- **Developed robust Python-based API** using `FastAPI` with endpoints for manual scaling, health checks, real-time metrics visualization, and scaling history tracking with `Prometheus` integration.
-- **Automated Docker Compose deployment** with service orchestration including `K3s master/worker` containers, network configuration, volume management, and comprehensive test workloads.
+- **Built advanced Kubernetes autoscaling prototype** using Python with atomic operations ensuring consistency across `K3s worker` nodes, `MongoDB` storage, and cluster state management.
+- **Implemented comprehensive Kubernetes monitoring** with `Prometheus` metrics collection, `kube-state-metrics` for cluster state, `Node Exporter`, `AlertManager`, and custom metrics endpoints.
+- **Engineered intelligent scaling logic** with configurable CPU/memory thresholds, pending pod detection, node readiness checks, and Redis-based cooldown management to prevent scaling thrashing.
+- **Designed fault-tolerant Kubernetes architecture** with `Kubernetes API` integration for node lifecycle management, graceful pod eviction before node removal, and automatic rollback mechanisms.
+- **Developed robust autoscaling API** using `FastAPI` with endpoints for manual scaling, health checks, real-time metrics visualization, and scaling event history tracking.
+- **Created prototype environment** using Docker containers for local testing with K3s master/worker setup, configurable workloads, and comprehensive test scenarios.
 
 **Production Migration Plans:**
-- 🚀 **Technology Migration**: Rewrite core autoscaler in Go for better performance and Kubernetes ecosystem integration
-- ☁️ **Infrastructure Migration**: Deploy to AWS using Terraform for infrastructure-as-code with EKS/ECS integration
-- 🔧 **Enhanced Features**: Implement Kubernetes Horizontal Pod Autoscaler (HPA) integration, advanced metrics aggregation, and multi-cluster support
-- 📊 **Enterprise Monitoring**: Integrate with AWS CloudWatch, enhance distributed tracing with Jaeger/OpenTelemetry
+- 🚀 **Technology Migration**: Rewrite core autoscaler in Go for better performance and native Kubernetes ecosystem integration
+- ☁️ **Infrastructure Migration**: Deploy to AWS using Terraform for IaC with EC2 instances as K3s worker nodes (not containers)
+- 🔧 **Enhanced Features**: Implement Kubernetes Cluster Autoscaler integration, custom metrics adapters, and multi-region cluster support
+- 📊 **Enterprise Monitoring**: Integrate with AWS CloudWatch, enhance distributed tracing with Jaeger/OpenTelemetry, and implement advanced alerting
 
-**Current Tech Stack:** `K3s` `Docker` `Prometheus` `Grafana` `MongoDB` `Redis` `Python` `FastAPI` `Kubernetes API` `Node Exporter` `AlertManager`\
-**Planned Production Stack:** `Go` `Terraform` `AWS EKS` `CloudWatch` `Jaeger` `OpenTelemetry` `Kubernetes HPA`
+**Current Tech Stack (Prototype):** `K3s` `Kubernetes API` `Prometheus` `Grafana` `MongoDB` `Redis` `Python` `FastAPI` `Node Exporter` `AlertManager` `Docker (testing only)`
+**Planned Production Stack:** `Go` `Terraform` `AWS EC2` `K3s` `CloudWatch` `Jaeger` `OpenTelemetry` `Kubernetes Cluster Autoscaler`
 
 **Key Learnings:**
-- Container orchestration patterns and autoscaling algorithms
+- Kubernetes-native autoscaling patterns and node lifecycle management
 - Distributed systems monitoring and observability practices
 - Atomic operations across multiple system layers
-- Docker container lifecycle management
-- Kubernetes API integration and node management
+- Kubernetes API integration and cluster state management
+- Production-ready infrastructure design for cloud environments
 ---
 
 ### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy) 🥉
