@@ -35,12 +35,14 @@ I don't just write backend code—I architect complete production systems with *
 
 ### **Backend Development**
 ![Python](https://img.shields.io/badge/Python-Expert-3776AB?style=flat&logo=python&logoColor=white)
+![Go](https://img.shields.io/badge/Go-Advanced-00ADD8?style=flat&logo=go&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Advanced-005571?style=flat&logo=fastapi)
 ![Django](https://img.shields.io/badge/Django-Proficient-092E20?style=flat&logo=django&logoColor=white)
 ![Asyncio](https://img.shields.io/badge/Async_Programming-Advanced-blue?style=flat)
 
 ### **Infrastructure & DevOps**
 ![AWS](https://img.shields.io/badge/AWS-VPC/EC2/S3-232F3E?style=flat&logo=amazon-aws&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=flat&logo=terraform&logoColor=white)
 ![Pulumi](https://img.shields.io/badge/Pulumi-IaC-8A3391?style=flat)
 ![Ansible](https://img.shields.io/badge/Ansible-Config_Management-EE0000?style=flat&logo=ansible)
 ![Docker](https://img.shields.io/badge/Docker-Expert-2496ED?style=flat&logo=docker&logoColor=white)
@@ -70,10 +72,11 @@ I don't just write backend code—I architect complete production systems with *
 ## 📊 By The Numbers
 
 ```
-🎯 5+ Production-Ready Applications Built
+🎯 6+ Production-Ready Applications Built
 ⚡ Sub-5ms API Response Times Achieved
 🖥️ 11+ AWS EC2 Instances Automated
 📦 1K+ Concurrent Users Supported
+🔄 Container Orchestration Systems Designed
 🧪 500+ DSA Problems Solved
 📖 200K+ Technical Blog Readers
 🎥 40+ Educational Videos Created
@@ -82,8 +85,8 @@ I don't just write backend code—I architect complete production systems with *
 
 ## 🌟 Featured Projects (Ranked by Complexity)
 
-### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥇
-**Most Complex Project - Full Infrastructure Automation**
+### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥈
+**High Complexity - Full Infrastructure Automation**
 
 **High-performance URL shortener with dual database architecture and production K3s deployment**
 - **Architected microservices** separating redirect service (read-heavy, **95% traffic**) from create service (write-heavy) with independent scaling capability and service-specific resource allocation.
@@ -107,7 +110,36 @@ I don't just write backend code—I architect complete production systems with *
 - Automated deployment pipelines
 ---
 
-### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy) 🥈
+### 🔄 [K3s Docker Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
+**Most Complex Infrastructure Project - Advanced Container Orchestration**
+
+**Prototype autoscaler that dynamically adds/removes Docker containers running k3s worker nodes based on Prometheus metrics**
+
+- **Built advanced container orchestration prototype** using Python with atomic scaling operations ensuring consistency across Docker containers, K3s nodes, and MongoDB storage layers.
+- **Implemented comprehensive monitoring stack** with `Prometheus` metrics collection, `Grafana` dashboards, `Node Exporter`, `AlertManager`, and custom metrics endpoints for complete system observability.
+- **Engineered intelligent autoscaling logic** with configurable CPU/memory thresholds, pending pod detection via `kube-state-metrics`, and Redis-based cooldown management to prevent scaling thrashing.
+- **Designed fault-tolerant architecture** with `Kubernetes API` integration for node lifecycle management, graceful pod eviction before worker removal, and automatic rollback mechanisms on failures.
+- **Developed robust Python-based API** using `FastAPI` with endpoints for manual scaling, health checks, real-time metrics visualization, and scaling history tracking with `Prometheus` integration.
+- **Automated Docker Compose deployment** with service orchestration including `K3s master/worker` containers, network configuration, volume management, and comprehensive test workloads.
+
+**Production Migration Plans:**
+- 🚀 **Technology Migration**: Rewrite core autoscaler in Go for better performance and Kubernetes ecosystem integration
+- ☁️ **Infrastructure Migration**: Deploy to AWS using Terraform for infrastructure-as-code with EKS/ECS integration
+- 🔧 **Enhanced Features**: Implement Kubernetes Horizontal Pod Autoscaler (HPA) integration, advanced metrics aggregation, and multi-cluster support
+- 📊 **Enterprise Monitoring**: Integrate with AWS CloudWatch, enhance distributed tracing with Jaeger/OpenTelemetry
+
+**Current Tech Stack:** `K3s` `Docker` `Prometheus` `Grafana` `MongoDB` `Redis` `Python` `FastAPI` `Kubernetes API` `Node Exporter` `AlertManager`\
+**Planned Production Stack:** `Go` `Terraform` `AWS EKS` `CloudWatch` `Jaeger` `OpenTelemetry` `Kubernetes HPA`
+
+**Key Learnings:**
+- Container orchestration patterns and autoscaling algorithms
+- Distributed systems monitoring and observability practices
+- Atomic operations across multiple system layers
+- Docker container lifecycle management
+- Kubernetes API integration and node management
+---
+
+### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy) 🥉
 **High Complexity - Media Processing Pipeline**
 
 **Full-Stack advanced video streaming solution with adaptive bitrate technology**
