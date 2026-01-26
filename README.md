@@ -86,57 +86,56 @@ I don't just write backend code—I architect complete production systems with *
 ## 🌟 Featured Projects (Ranked by Complexity)
 
 ### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥈
-**High Complexity - Full Infrastructure Automation**
+**High Complexity - Decoupled Microservices Architecture**
 
-**High-performance URL shortener with dual database architecture and production K3s deployment**
-- **Architected microservices** separating redirect service (read-heavy, **95% traffic**) from create service (write-heavy) with independent scaling capability and service-specific resource allocation.
+**High-performance URL shortener with three independent services, dual database strategy, and production K3s deployment**
+
+- **Architected decoupled microservices** separating `create_service` (write-heavy), `redirect_service` (95% read traffic), and `worker_service` (Celery tasks) with independent scaling via `docker-compose-decoupled.yml`.
 - **Implemented Redis-first caching** with MongoDB fallback and Nginx proxy routing, targeting **sub-5ms redirect latency** for optimal user experience.
-- **Optimized PostgreSQL operations** using atomic key acquisition with `SELECT FOR UPDATE SKIP LOCKED` for race-free distributed key allocation and parameterized bulk inserts.
-- **Implemented comprehensive observability solution** using `OpenTelemetry` for distributed tracing with context propagation, integrated with `Tempo` for trace storage and `Grafana` for visualization to monitor system performance and debug issues across microservices.
+- **Built repository pattern** with abstract base classes for PostgreSQL and MongoDB, centralized error handling, and shared `common/` library for clean data access across services.
+- **Optimized PostgreSQL operations** using atomic key acquisition with `SELECT FOR UPDATE SKIP LOCKED` for race-free distributed key allocation and parameterized bulk inserts for 100K+ keys.
+- **Implemented comprehensive observability** using `OpenTelemetry` with B3 propagation, automatic FastAPI/DB instrumentation, OTLP export to `Tempo` for distributed tracing and `Grafana` visualization.
+- **Engineered production-grade resilience** with `PgBouncer` connection pooling (**53% reduction** in overhead), circuit breaker pattern preventing cascade failures, exponential backoff retries, and database timeout protection.
 - **Deployed production K3s cluster on AWS** using `Pulumi` IaC and `Ansible` with path-based Nginx routing, per-service rate limiting, and CI/CD pipeline via `GitHub Actions`.
-- **Engineered fault-tolerant architecture** with `PgBouncer` connection pooling achieving **53% reduction** in database connection overhead, circuit breakers, and retry mechanisms ensuring high availability.
-- **Implemented intelligent key pre-population system** using `Celery` workers to maintain a pool of unused short URL keys for instant URL creation without database latency.
-- **Automated AWS infrastructure deployment** with VPC setup, security groups, bastion host access, and comprehensive monitoring via `Celery Flower` dashboard.
+- **Implemented intelligent key pre-population** using `Celery` workers maintaining pool of unused keys for instant URL creation without database latency.
+- **Built comprehensive testing infrastructure** with multi-database mocking (SQLite, mongomock, fakeredis), async pytest framework, httpx API client testing, and isolated test environments.
+- **Automated AWS infrastructure** with VPC setup, security groups, bastion host access, and monitoring via `Celery Flower` dashboard.
 
 **Technical Deep Dive:** [Read my Medium articles](https://medium.com/@kazisultanmahmud/)
 
 
-**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Grafana` `PgBouncer` `GitHub Actions`
+**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Grafana` `PgBouncer` `pytest` `httpx` `GitHub Actions`
 
 **Key Learnings:**
+- Microservices decoupling for independent scaling
+- Repository pattern for clean data access
+- Circuit breaker pattern for fault tolerance
+- Multi-database testing strategies
 - Infrastructure as Code best practices
-- Multi-server coordination and networking
-- Security groups and VPC design
-- Automated deployment pipelines
 ---
 
-### 🔄 [K3s Custom Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
-**Most Complex Infrastructure Project - Kubernetes-Centric Autoscaling**
+### 🔄 [ElastiKube: Production K3s Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
+**Most Complex Infrastructure Project - ML-Enhanced Event-Driven Architecture**
 
-**Prototype Kubernetes autoscaler that dynamically adds/removes worker nodes based on Prometheus metrics (Docker used for local testing only)**
+**Production-grade autoscaling system for K3s clusters with 4-layer intelligent scaling architecture, ML-based predictive scaling, and multi-AZ high availability**
 
-- **Built advanced Kubernetes autoscaling prototype** using Python with atomic operations ensuring consistency across `K3s worker` nodes, `MongoDB` storage, and cluster state management.
-- **Implemented comprehensive Kubernetes monitoring** with `Prometheus` metrics collection, `kube-state-metrics` for cluster state, `Node Exporter`, `AlertManager`, and custom metrics endpoints.
-- **Engineered intelligent scaling logic** with configurable CPU/memory thresholds, pending pod detection, node readiness checks, and Redis-based cooldown management to prevent scaling thrashing.
-- **Designed fault-tolerant Kubernetes architecture** with `Kubernetes API` integration for node lifecycle management, graceful pod eviction before node removal, and automatic rollback mechanisms.
-- **Developed robust autoscaling API** using `FastAPI` with endpoints for manual scaling, health checks, real-time metrics visualization, and scaling event history tracking.
-- **Created prototype environment** using Docker containers for local testing with K3s master/worker setup, configurable workloads, and comprehensive test scenarios.
+- **Architected 4-layer autoscaling system**: (1) Data Collection for ML training, (2) Time-Aware Scaling with peak/off-peak thresholds (85%/60% vs 60%/40%), (3) Flash Sale Detection with emergency response to CPU spikes >30% in 2 minutes, (4) Predictive Scaling using Prophet models forecasting CPU 15 minutes ahead.
+- **Implemented ML training pipeline** with Kubernetes CronJob for automated weekly model retraining, feature engineering (temporal cyclical encoding, lag features, rolling statistics), time-series cross-validation, and backtesting with MAE/RMSE metrics tracking.
+- **Built event-driven Lambda architecture** with four specialized functions (Decision, Scale-Up, Scale-Down, Cleanup) orchestrated through EventBridge for fault tolerance, crash recovery via Write-Ahead Log (WAL), and distributed locking with 200s timeout.
+- **Designed multi-AZ high availability** with round-robin worker distribution across 3 availability zones (ap-southeast-1a/b/c), single NAT Gateway optimization, and LIFO scale-down maintaining natural distribution balance.
+- **Implemented multi-layer idempotency** including bootstrap verification, cooldown checks (scale-up: 300s, scale-down: 900s), pending instance detection, and automatic stale flag cleanup to prevent duplicate scaling operations.
+- **Integrated comprehensive observability** with 17 CloudWatch alarms (CRITICAL/WARNING severity), Prometheus health graceful degradation (conservative defaults when unavailable), and fixed LogGroups for stable dashboard references.
+- **Engineered spot instance support** with automatic On-Demand fallback when spot capacity unavailable (InsufficientInstanceCapacity, SpotInstanceCapacityNotAvailable, MaxSpotInstanceCountExceeded), graceful 2-minute interruption handling, and proper node cleanup.
 
-**Production Migration Plans:**
-- 🚀 **Technology Migration**: Rewrite core autoscaler in Go for better performance and native Kubernetes ecosystem integration
-- ☁️ **Infrastructure Migration**: Deploy to AWS using Terraform for IaC with EC2 instances as K3s worker nodes (not containers)
-- 🔧 **Enhanced Features**: Implement Kubernetes Cluster Autoscaler integration, custom metrics adapters, and multi-region cluster support
-- 📊 **Enterprise Monitoring**: Integrate with AWS CloudWatch, enhance distributed tracing with Jaeger/OpenTelemetry, and implement advanced alerting
-
-**Current Tech Stack (Prototype):** `K3s` `Kubernetes API` `Prometheus` `Grafana` `MongoDB` `Redis` `Python` `FastAPI` `Node Exporter` `AlertManager` `Docker (testing only)`
-**Planned Production Stack:** `Go` `Terraform` `AWS EC2` `K3s` `CloudWatch` `Jaeger` `OpenTelemetry` `Kubernetes Cluster Autoscaler`
+**Tech Stack:** `AWS Lambda` `EventBridge` `DynamoDB` `EC2` `K3s` `Prometheus` `CloudWatch` `Prophet` `Kubernetes CronJob` `SSM` `Secrets Manager` `S3` `Python 3.11` `Pulumi` `Ansible` `kubectl` `Node Exporter`
 
 **Key Learnings:**
-- Kubernetes-native autoscaling patterns and node lifecycle management
-- Distributed systems monitoring and observability practices
-- Atomic operations across multiple system layers
-- Kubernetes API integration and cluster state management
-- Production-ready infrastructure design for cloud environments
+- Layered autoscaling architecture combining reactive (time-aware, flash sale) and proactive (ML predictive) scaling
+- Event-driven architecture patterns with Lambda chaining via EventBridge
+- Distributed systems state management with DynamoDB and WAL patterns
+- ML pipeline deployment with automated retraining and model versioning
+- Multi-AZ infrastructure design with cost optimization (single NAT, spot instances)
+- Kubernetes cluster operations including node lifecycle, pod draining, and CronJob scheduling
 ---
 
 ### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy) 🥉
