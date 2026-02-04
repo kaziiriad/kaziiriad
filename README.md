@@ -114,7 +114,7 @@ I don't just write backend code—I architect complete production systems with *
 - Infrastructure as Code best practices
 ---
 
-### 🔄 [ElastiKube: Production K3s Autoscaler](https://github.com/kaziiriad/k3s-autoscaler-prototype) 🥇
+### 🔄 [ElastiKube: Production K3s Autoscaler](https://screen-capture-perfection-qeu9a65e1.vercel.app/) 🥇
 **Most Complex Infrastructure Project - ML-Enhanced Event-Driven Architecture**
 
 **Production-grade autoscaling system for K3s clusters with 4-layer intelligent scaling architecture, ML-based predictive scaling, and multi-AZ high availability**
