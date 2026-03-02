@@ -86,32 +86,31 @@ I don't just write backend code—I architect complete production systems with *
 ## 🌟 Featured Projects (Ranked by Complexity)
 
 ### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥈
-**High Complexity - Decoupled Microservices Architecture**
+**High Complexity - Polyglot Microservices with Full Observability**
 
-**High-performance URL shortener with three independent services, dual database strategy, and production K3s deployment**
+**Production-grade URL shortener with Go redirect service achieving sub-1ms latency, complete OpenTelemetry observability stack, and intelligent autoscaling**
 
-- **Architected decoupled microservices** separating `create_service` (write-heavy), `redirect_service` (95% read traffic), and `worker_service` (Celery tasks) with independent scaling via `docker-compose-decoupled.yml`.
-- **Implemented Redis-first caching** with MongoDB fallback and Nginx proxy routing, targeting **sub-5ms redirect latency** for optimal user experience.
-- **Built repository pattern** with abstract base classes for PostgreSQL and MongoDB, centralized error handling, and shared `common/` library for clean data access across services.
-- **Optimized PostgreSQL operations** using atomic key acquisition with `SELECT FOR UPDATE SKIP LOCKED` for race-free distributed key allocation and parameterized bulk inserts for 100K+ keys.
-- **Implemented comprehensive observability** using `OpenTelemetry` with B3 propagation, automatic FastAPI/DB instrumentation, OTLP export to `Tempo` for distributed tracing and `Grafana` visualization.
-- **Engineered production-grade resilience** with `PgBouncer` connection pooling (**53% reduction** in overhead), circuit breaker pattern preventing cascade failures, exponential backoff retries, and database timeout protection.
-- **Deployed production K3s cluster on AWS** using `Pulumi` IaC and `Ansible` with path-based Nginx routing, per-service rate limiting, and CI/CD pipeline via `GitHub Actions`.
-- **Implemented intelligent key pre-population** using `Celery` workers maintaining pool of unused keys for instant URL creation without database latency.
+- **Architected polyglot microservices** with Python FastAPI for `create_service`, high-performance Go for `redirect_service`, and Celery `worker_service`, each independently scalable via `docker-compose-decoupled.yml`.
+- **Implemented Go redirect service** with Chi router achieving **sub-1ms redirect latency** (vs 5-7ms Python), clean architecture using `internal/` package structure, and single-binary deployment for minimal resource footprint.
+- **Built circuit breaker pattern** in Go with three-state fault tolerance (Closed → Open → Half-Open), preventing cascade failures and enabling fast-fail for read operations without retry delays.
+- **Implemented cache-aside pattern** with Redis (30-minute TTL) + MongoDB fallback, optimizing for 95%+ cache hit rate and automatic expiration handling.
+- **Deployed complete observability stack** with `OpenTelemetry` collector, `Tempo` (distributed tracing), `Loki` (log aggregation via Promtail), and `Grafana` dashboards for end-to-end service visibility.
+- **Engineered production-grade resilience** with `PgBouncer` connection pooling (**53% reduction** in overhead), atomic PostgreSQL key acquisition using `SELECT FOR UPDATE SKIP LOCKED`, and exponential backoff retries.
+- **Implemented intelligent key pre-population** using `Celery` workers maintaining pool of unused keys for instant URL creation without database latency, with hybrid strategy auto-selecting optimal insertion method.
 - **Built comprehensive testing infrastructure** with multi-database mocking (SQLite, mongomock, fakeredis), async pytest framework, httpx API client testing, and isolated test environments.
-- **Automated AWS infrastructure** with VPC setup, security groups, bastion host access, and monitoring via `Celery Flower` dashboard.
+- **Deployed production K3s cluster on AWS** using `Pulumi` IaC and `Ansible` with path-based Nginx routing, per-service rate limiting, and CI/CD pipeline via `GitHub Actions`.
 
 **Technical Deep Dive:** [Read my Medium articles](https://medium.com/@kazisultanmahmud/)
 
 
-**Tech Stack:** `FastAPI` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Grafana` `PgBouncer` `pytest` `httpx` `GitHub Actions`
+**Tech Stack:** `Go` `FastAPI` `Chi Router` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Loki` `Grafana` `Promtail` `PgBouncer` `Circuit Breaker` `pytest` `httpx` `GitHub Actions`
 
 **Key Learnings:**
-- Microservices decoupling for independent scaling
-- Repository pattern for clean data access
-- Circuit breaker pattern for fault tolerance
-- Multi-database testing strategies
-- Infrastructure as Code best practices
+- Polyglot microservices: Go for performance-critical paths, Python for business logic
+- Clean architecture with internal/ package structure in Go
+- Circuit breaker pattern for fault tolerance in distributed systems
+- End-to-end observability with OpenTelemetry + Tempo + Loki
+- Multi-database testing strategies with mocking frameworks
 ---
 
 ### 🔄 [ElastiKube: Production K3s Autoscaler](https://screen-capture-perfection-qeu9a65e1.vercel.app/) 🥇
