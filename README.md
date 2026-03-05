@@ -2,7 +2,7 @@
 
 ## 🚀 Backend Engineer | Infrastructure Automation Specialist | Distributed Systems Architect
 
-**Building production-grade distributed systems with automated AWS deployments, achieving sub-5ms response times at 1K+ concurrent users**
+**Building production-grade distributed systems with automated AWS deployments, achieving sub-1ms response times at 1K+ concurrent users**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=blue)](https://www.linkedin.com/in/sultan-mahmud-b25b25130/)
 [![Email](https://img.shields.io/badge/Hire_Me!-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaziiriad@gmail.com)
@@ -23,10 +23,11 @@
 
 I don't just write backend code—I architect complete production systems with **full automation from infrastructure to deployment**:
 
-✅ **Infrastructure as Code Expert** - Automated AWS deployments managing 11+ EC2 instances with Pulumi & Ansible  
-✅ **Performance Engineering** - Optimized systems achieving sub-5ms response times with 1K+ concurrent users  
-✅ **DevOps Automation** - Zero-touch deployments with CI/CD, containerization, and orchestration  
-✅ **Distributed Systems** - Built fault-tolerant architectures with auto-scaling, load balancing, and high availability  
+✅ **Infrastructure as Code Expert** - Automated AWS deployments managing 11+ EC2 instances with Pulumi & Ansible
+✅ **Performance Engineering** - Optimized systems achieving sub-1ms response times with 1K+ concurrent users
+✅ **Polyglot Architecture** - Go for performance-critical paths, Python for business logic
+✅ **DevOps Automation** - Zero-touch deployments with CI/CD, containerization, and orchestration
+✅ **Distributed Systems** - Built fault-tolerant architectures with auto-scaling, load balancing, and high availability
 ✅ **Technical Writing** - [Published articles](https://medium.com/@kazisultanmahmud) explaining complex architectures in simple words  
 
 ---
@@ -73,7 +74,7 @@ I don't just write backend code—I architect complete production systems with *
 
 ```
 🎯 6+ Production-Ready Applications Built
-⚡ Sub-5ms API Response Times Achieved
+⚡ Sub-1ms API Response Times Achieved
 🖥️ 11+ AWS EC2 Instances Automated
 📦 1K+ Concurrent Users Supported
 🔄 Container Orchestration Systems Designed
@@ -212,13 +213,30 @@ I don't just write backend code—I architect complete production systems with *
 
 ## 💼 Professional Experience
 
-### **Backend Developer Intern** @ Cooking Station
+### **Backend Engineer & Product Builder**
+*August 2024 - Present | Portfolio Projects*
+
+🎯 **Building production systems to demonstrate platform engineering capabilities while actively seeking full-time opportunities**
+
+- **Architected and deployed 5 production-grade applications** serving **5,000+ real users** across e-commerce, fintech, and SaaS domains
+- **Managed 11+ EC2 instances** with **99.9% uptime** through multi-AZ AWS infrastructure with automated deployment
+- **Built ElastiKube**: ML-enhanced Kubernetes autoscaler achieving **60% cost reduction** with 4-layer intelligent scaling (time-aware, flash sale detection, Prophet forecasting)
+- **Engineered polyglot URL shortener** with Go redirect service achieving **sub-1ms latency** and comprehensive observability (OpenTelemetry, Tempo, Loki, Grafana)
+- **Automated infrastructure deployment** with Pulumi & Ansible, reducing deployment time **93.75%** (4 hours → 15 minutes)
+
+**Tech Stack:** Python, Go, FastAPI, Django, AWS, Kubernetes, Docker, PostgreSQL, Redis, MongoDB, Pulumi, Ansible, OpenTelemetry, Grafana
+
+---
+
+### **Backend Developer** @ Cooking Station
 *June 2024 - August 2024 | Dhaka, Bangladesh*
 
 🎯 **Delivered measurable business impact:**
-- Designed RBAC dashboard for **200+ users** with real-time analytics
-- Automated **40% of manual processes** through intelligent workflows
-- Built production-ready meal scheduling system with cron jobs
+- Designed role-based admin dashboard for **200+ users** with real-time meal analytics
+- Automated **40% of manual effort** in account management through intelligent workflows
+- Built production-ready meal scheduling system using cron jobs with configurable time boundaries
+
+**Tech Stack:** Python, Django, PostgreSQL, Docker, JavaScript, HTML/CSS
 
 ---
 
