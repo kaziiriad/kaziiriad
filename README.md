@@ -94,6 +94,7 @@ I don't just write backend code—I architect complete production systems with *
 - **Architected polyglot microservices** with Python FastAPI for `create_service`, high-performance Go for `redirect_service`, and Celery `worker_service`, each independently scalable via `docker-compose-decoupled.yml`.
 - **Implemented Go redirect service** with Chi router achieving **sub-1ms redirect latency** (vs 5-7ms Python), clean architecture using `internal/` package structure, and single-binary deployment for minimal resource footprint.
 - **Built circuit breaker pattern** in Go with three-state fault tolerance (Closed → Open → Half-Open), preventing cascade failures and enabling fast-fail for read operations without retry delays.
+- **Implemented Redis sliding window rate limiter** for Python FastAPI services using Lua script atomic operations, dual-layer architecture (Nginx 30r/m + App 10r/m), and IP+UA hash client identification with dedicated Redis DB isolation.
 - **Implemented cache-aside pattern** with Redis (30-minute TTL) + MongoDB fallback, optimizing for 95%+ cache hit rate and automatic expiration handling.
 - **Deployed complete observability stack** with `OpenTelemetry` collector, `Tempo` (distributed tracing), `Loki` (log aggregation via Promtail), and `Grafana` dashboards for end-to-end service visibility.
 - **Engineered production-grade resilience** with `PgBouncer` connection pooling (**53% reduction** in overhead), atomic PostgreSQL key acquisition using `SELECT FOR UPDATE SKIP LOCKED`, and exponential backoff retries.
@@ -114,28 +115,38 @@ I don't just write backend code—I architect complete production systems with *
 - Multi-database testing strategies with mocking frameworks
 ---
 
-### 🔄 [ElastiKube: Production K3s Autoscaler](https://screen-capture-perfection-qeu9a65e1.vercel.app/) 🥇
+### 🔄 [ElastiKube: Production K3s Autoscaler](https://elastikubedemo.vercel.app/) 🥇
 **Most Complex Infrastructure Project - ML-Enhanced Event-Driven Architecture**
 
 **Production-grade autoscaling system for K3s clusters with 4-layer intelligent scaling architecture, ML-based predictive scaling, and multi-AZ high availability**
 
 - **Architected 4-layer autoscaling system**: (1) Data Collection for ML training, (2) Time-Aware Scaling with peak/off-peak thresholds (85%/60% vs 60%/40%), (3) Flash Sale Detection with emergency response to CPU spikes >30% in 2 minutes, (4) Predictive Scaling using Prophet models forecasting CPU 15 minutes ahead.
-- **Implemented ML training pipeline** with Kubernetes CronJob for automated weekly model retraining, feature engineering (temporal cyclical encoding, lag features, rolling statistics), time-series cross-validation, and backtesting with MAE/RMSE metrics tracking.
+
+**Version Milestones:**
+- **v1.3** — Fast Worker Bootstrap with Pre-Baked AMI (91s→30s bootstrap, auto-detect network iface, k3s-agent-binary role, Lambda SSM-only AMI)
+- **v1.2** — ML Training Pipeline + Predictive Scaling (Layer 4): Prophet model, Kubernetes CronJob for automated weekly retraining, feature engineering, cross-validation
+- **v1.1** — Layered Autoscaling Architecture: Time-Aware Scaling, Flash Sale Detection, Permanent Worker Protection, fixed CloudWatch LogGroups
+- **v1.0** — Event-Driven Lambda Architecture with DynamoDB state management, Multi-AZ distribution, LIFO scale-down, Spot fallback, 17 CloudWatch alarms
+
+**Details:**
+- **Implemented ML training pipeline** with Kubernetes CronJob for automated weekly model retraining (Sunday 2 AM UTC), feature engineering (temporal cyclical encoding, lag features, rolling statistics), time-series cross-validation with MAE/RMSE metrics, and backtesting with prediction interval coverage.
 - **Built event-driven Lambda architecture** with four specialized functions (Decision, Scale-Up, Scale-Down, Cleanup) orchestrated through EventBridge for fault tolerance, crash recovery via Write-Ahead Log (WAL), and distributed locking with 200s timeout.
 - **Designed multi-AZ high availability** with round-robin worker distribution across 3 availability zones (ap-southeast-1a/b/c), single NAT Gateway optimization, and LIFO scale-down maintaining natural distribution balance.
 - **Implemented multi-layer idempotency** including bootstrap verification, cooldown checks (scale-up: 300s, scale-down: 900s), pending instance detection, and automatic stale flag cleanup to prevent duplicate scaling operations.
 - **Integrated comprehensive observability** with 17 CloudWatch alarms (CRITICAL/WARNING severity), Prometheus health graceful degradation (conservative defaults when unavailable), and fixed LogGroups for stable dashboard references.
-- **Engineered spot instance support** with automatic On-Demand fallback when spot capacity unavailable (InsufficientInstanceCapacity, SpotInstanceCapacityNotAvailable, MaxSpotInstanceCountExceeded), graceful 2-minute interruption handling, and proper node cleanup.
+- **Engineered spot instance support** with automatic On-Demand fallback when spot capacity unavailable (InsufficientInstanceCapacity, SpotInstanceCapacityNotAvailable, MaxSpotInstanceCountExceeded), graceful 2-minute node drain via SSM, and proper Kubernetes cleanup.
+- **Deployed infrastructure as code** with Pulumi (VPC, EC2, Lambda, DynamoDB, EventBridge, IAM) and Ansible (k3s-worker-preinstall and k3s-agent-binary roles for bare-metal worker provisioning, worker-bake.yml for Pre-Baked AMI creation)
 
-**Tech Stack:** `AWS Lambda` `EventBridge` `DynamoDB` `EC2` `K3s` `Prometheus` `CloudWatch` `Prophet` `Kubernetes CronJob` `SSM` `Secrets Manager` `S3` `Python 3.11` `Pulumi` `Ansible` `kubectl` `Node Exporter`
+**Tech Stack:** `AWS Lambda` `EventBridge` `DynamoDB` `EC2` `K3s` `Prometheus` `CloudWatch` `Prophet` `Kubernetes CronJob` `SSM` `Secrets Manager` `S3` `Python 3.11` `Pulumi` `Ansible` `kubectl` `Node Exporter` `Pre-Baked AMI`
 
 **Key Learnings:**
 - Layered autoscaling architecture combining reactive (time-aware, flash sale) and proactive (ML predictive) scaling
-- Event-driven architecture patterns with Lambda chaining via EventBridge
-- Distributed systems state management with DynamoDB and WAL patterns
-- ML pipeline deployment with automated retraining and model versioning
-- Multi-AZ infrastructure design with cost optimization (single NAT, spot instances)
-- Kubernetes cluster operations including node lifecycle, pod draining, and CronJob scheduling
+- Event-driven architecture patterns with Lambda chaining via EventBridge and WAL-based crash recovery
+- Distributed systems state management with DynamoDB conditional writes (optimistic locking) and 200s distributed locks
+- ML pipeline deployment with automated retraining via Kubernetes CronJob, model versioning in S3
+- Multi-AZ infrastructure design with cost optimization (single NAT, round-robin scale-up, LIFO scale-down)
+- Kubernetes cluster operations including node lifecycle, pod draining via SSM (120s timeout), and CronJob scheduling
+- Pre-baked AMI patterns for fast worker bootstrap (91s→30s), Ansible roles for bare-metal provisioning
 ---
 
 ### 🎬 [StreamBuddy: Scalable Video Streaming Platform](https://github.com/kaziiriad/streambuddy) 🥉
@@ -182,17 +193,21 @@ I don't just write backend code—I architect complete production systems with *
 
 ---
 ### 🚀 [Scalable Multi-Channel Notification System](https://github.com/kaziiriad/notification_system)
-**Medium Complexity - Async Communication**
+**High Complexity - Async Communication**
 
-**Real-time notification system for multiple channels**
-  - **Modern Backend:** Built with Python and FastAPI for high-performance, asynchronous API endpoints.
-  - **Multi-Channel Delivery:** Supports sending notifications through various channels like Email, SMS, and Push Notifications.
-  - **Asynchronous & Scalable:** Leverages Celery and RabbitMQ for background task processing, ensuring the system can handle high-volume loads without blocking.
-  - **Robust Data Storage:** Uses PostgreSQL for reliable data persistence, managed with Alembic for smooth database migrations.
-  - **Containerized Environment:** Fully containerized with Docker and Docker Compose for consistent development, testing, and deployment.
-  - **Comprehensive Testing:** Includes a full suite of tests using pytest to ensure code quality and reliability.
+**Production-ready notification microservice with service-to-service auth and distributed rate limiting**
 
-**Tech Stack:** `FastAPI` `Celery` `PostgreSQL` `RabbitMQ` `Redis` `Alembic` `SQLAlchemy` `Docker` `Pytest`
+  - **Modern Backend:** Python + FastAPI with async API endpoints, direct RabbitMQ consumer (no Celery) with pika for simplified ops
+  - **Multi-Channel Delivery:** Email (SendGrid), SMS (Twilio), Push (Firebase) via factory pattern
+  - **JWT Service Auth:** Scoped tokens for service-to-service auth with 60-min expiry
+  - **Rate Limiting:** Redis token bucket (100 req/min + burst per service) with Lua script atomic ops
+  - **Redis Caching:** 30s TTL cache for notification lookups with automatic invalidation on status update
+  - **Idempotency + Retry:** Worker skips already-sent notifications; 3 retry attempts (1s, 2s, 4s delays)
+  - **Structured JSON Logging:** Production observability via `extra={}` dict pattern
+  - **Containerized:** Docker Compose with PostgreSQL, RabbitMQ, Redis services
+  - **Comprehensive Testing:** pytest suite with unit and integration tests
+
+**Tech Stack:** `FastAPI` `Python` `pika` `PostgreSQL` `RabbitMQ` `Redis` `SQLAlchemy` `Docker` `pytest` `JWT` `SendGrid` `Twilio` `Firebase`
 
 ---
 
