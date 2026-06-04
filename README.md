@@ -86,33 +86,41 @@ I don't just write backend code—I architect complete production systems with *
 
 ## 🌟 Featured Projects (Ranked by Complexity)
 
-### 🔗 [Scalable URL Shortener Microservice](https://github.com/kaziiriad/url-shortener-scalable) 🥈
-**High Complexity - Polyglot Microservices with Full Observability**
+### 🔗 [Scalable URL Shortener Microservice (Snipl)](https://github.com/kaziiriad/url-shortener-scalable) 🥈
+**High Complexity - Polyglot Microservices + Production Frontend + Full Observability**
 
-**Production-grade URL shortener with Go redirect service achieving sub-1ms latency, complete OpenTelemetry observability stack, and intelligent autoscaling**
+**Production-grade URL shortener with sub-1ms Go redirect service, React 18 frontend with two-layer navigation, complete OpenTelemetry observability stack, and cloud-native deployment on Render + Cloudflare Pages**
 
-- **Architected polyglot microservices** with Python FastAPI for `create_service`, high-performance Go for `redirect_service`, and Celery `worker_service`, each independently scalable via `docker-compose-decoupled.yml`.
-- **Implemented Go redirect service** with Chi router achieving **sub-1ms redirect latency** (vs 5-7ms Python), clean architecture using `internal/` package structure, and single-binary deployment for minimal resource footprint.
-- **Built circuit breaker pattern** in Go with three-state fault tolerance (Closed → Open → Half-Open), preventing cascade failures and enabling fast-fail for read operations without retry delays.
+- **Architected polyglot microservices** with Python FastAPI for `create_service`, high-performance Go (Chi) for `redirect_service`, and Celery `worker_service` — each independently scalable via `docker-compose-decoupled.yml`.
+- **Achieved sub-1ms Go redirect latency** (vs 5-7ms Python) with clean `internal/` package architecture, three-state circuit breaker (Closed → Open → Half-Open), and single-binary deployment.
+- **Built the "Snipl" frontend** as a separate `link-love` repo consumed as a git submodule — Vite + React 18 + TypeScript, deployed to Cloudflare Pages, served as an installable PWA with offline-capable service worker and web manifest.
+- **Designed a two-layer navigation model** for in-page UX: React Router 6 owns shareable URLs (`/r/:shortKey`, `/_health`, 404) while a `ViewContext` (activeView + footerPanel) drives glide transitions between Index, Dashboard, MultiLink, and Custom Links — no URL change, no flash of empty state, no back-button mismatch.
+- **Built direction-aware GlideView** with Framer Motion (ease-out-quint `[0.22, 1, 0.36, 1]`, ~60px X offset) and a modal-style `FooterPanelView` for legal/feedback content with `overscroll-contain` scroll isolation, `aria-modal` focus management, and ESC-to-close.
+- **Established a lock-step Layout invariant** (`h-screen overflow-hidden` + fixed Navbar/Footer chrome) so manual scroll stays trapped inside the active view — required for panel scroll isolation to work.
+- **Respected `prefers-reduced-motion` throughout** with a media-query-aware `scrollToId` helper and per-call `behavior` fallbacks; all animations have a no-motion code path.
 - **Implemented Redis sliding window rate limiter** for Python FastAPI services using Lua script atomic operations, dual-layer architecture (Nginx 30r/m + App 10r/m), and IP+UA hash client identification with dedicated Redis DB isolation.
 - **Implemented cache-aside pattern** with Redis (30-minute TTL) + MongoDB fallback, optimizing for 95%+ cache hit rate and automatic expiration handling.
 - **Deployed complete observability stack** with `OpenTelemetry` collector, `Tempo` (distributed tracing), `Loki` (log aggregation via Promtail), and `Grafana` dashboards for end-to-end service visibility.
 - **Engineered production-grade resilience** with `PgBouncer` connection pooling (**53% reduction** in overhead), atomic PostgreSQL key acquisition using `SELECT FOR UPDATE SKIP LOCKED`, and exponential backoff retries.
 - **Implemented intelligent key pre-population** using `Celery` workers maintaining pool of unused keys for instant URL creation without database latency, with hybrid strategy auto-selecting optimal insertion method.
 - **Built comprehensive testing infrastructure** with multi-database mocking (SQLite, mongomock, fakeredis), async pytest framework, httpx API client testing, and isolated test environments.
-- **Deployed production K3s cluster on AWS** using `Pulumi` IaC and `Ansible` with path-based Nginx routing, per-service rate limiting, and CI/CD pipeline via `GitHub Actions`.
+- **Deployed to Render (backend) + Cloudflare Pages (frontend)** with branch-based preview environments, env-var driven `BASE_URL`/`CORS` configuration, and zero-touch CI/CD via `GitHub Actions`.
 
 **Technical Deep Dive:** [Read my Medium articles](https://medium.com/@kazisultanmahmud/)
 
 
-**Tech Stack:** `Go` `FastAPI` `Chi Router` `Redis` `PostgreSQL` `MongoDB` `Celery` `Nginx` `Docker` `K3s` `Pulumi` `Ansible` `AWS` `OpenTelemetry` `Tempo` `Loki` `Grafana` `Promtail` `PgBouncer` `Circuit Breaker` `pytest` `httpx` `GitHub Actions`
+**Tech Stack:** `Go` `Chi Router` `FastAPI` `Celery` `Redis` `PostgreSQL` `MongoDB` `Nginx` `Docker` `React 18` `Vite` `TypeScript` `Framer Motion` `TanStack Query` `Zod` `shadcn/ui` `Tailwind` `PWA` `Cloudflare Pages` `Render` `Pulumi` `Ansible` `OpenTelemetry` `Tempo` `Loki` `Grafana` `Promtail` `PgBouncer` `Circuit Breaker` `pytest` `vitest` `httpx` `GitHub Actions`
 
 **Key Learnings:**
 - Polyglot microservices: Go for performance-critical paths, Python for business logic
 - Clean architecture with internal/ package structure in Go
 - Circuit breaker pattern for fault tolerance in distributed systems
+- Two-layer navigation: URL routes for shareable destinations, context state for in-page transitions
+- Scroll-isolation invariants: `h-screen overflow-hidden` root + panel `overscroll-contain`
+- a11y in motion: `aria-modal`, focus management, ESC handling, `prefers-reduced-motion`
 - End-to-end observability with OpenTelemetry + Tempo + Loki
 - Multi-database testing strategies with mocking frameworks
+- Submodule workflow: pointer-based dependency between backend (this repo) and frontend (`link-love`)
 ---
 
 ### 🔄 [ElastiKube: Production K3s Autoscaler](https://elastikubedemo.vercel.app/) 🥇
