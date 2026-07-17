@@ -42,14 +42,16 @@
 
 ## 🛠️ Tech Stack
 
-**Languages** · `Python` · `Go` · `TypeScript` · `SQL` · `Bash`
-**Backend** · `FastAPI` · `Django` · `Django REST` · `Gin` · `Chi` · `Asynq` · `Celery`
-**Frontend** · `React` · `Vite` · `Tailwind` · `shadcn/ui`
-**Data** · `PostgreSQL` · `Redis` · `MongoDB` · `RabbitMQ` · `PgBouncer`
-**Cloud & Infra** · `AWS (EC2 · Lambda · VPC · EventBridge · S3 · CloudWatch · IAM)` · `K3s · Kubernetes` · `Docker · Nginx`
-**IaC & Automation** · `Pulumi` · `Terraform` · `Ansible` · `GitHub Actions` · `Docker Swarm`
-**Observability** · `OpenTelemetry` · `Grafana` · `Tempo` · `Loki` · `Prometheus` · `CloudWatch`
-**Practices** · `Microservices` · `Distributed Systems` · `GitOps` · `Blue/Green` · `Fault Tolerance`
+| Category | Tools |
+|---|---|
+| 🟦 **Languages** | `Python` · `Go` · `TypeScript` · `SQL` · `Bash` |
+| 🟩 **Backend** | `FastAPI` · `Django` · `Django REST` · `Gin` · `Chi` · `Asynq` · `Celery` |
+| 🟪 **Frontend** | `React` · `Vite` · `Tailwind` · `shadcn/ui` · `TanStack Query` · `Radix` |
+| 🟧 **Data** | `PostgreSQL` · `Redis` · `MongoDB` · `RabbitMQ` · `PgBouncer` |
+| ☁️ **Cloud & Infra** | `AWS EC2` · `Lambda` · `VPC` · `EventBridge` · `S3` · `CloudWatch` · `IAM` · `K3s / Kubernetes` · `Docker` · `Nginx` |
+| 🟨 **IaC & Automation** | `Pulumi` · `Terraform` · `Ansible` · `GitHub Actions` · `Docker Swarm` |
+| 🟥 **Observability** | `OpenTelemetry` · `Grafana` · `Tempo` · `Loki` · `Prometheus` · `CloudWatch` |
+| 🟫 **Practices** | `Microservices` · `Distributed Systems` · `GitOps` · `Blue/Green` · `Fault Tolerance` |
 
 ---
 
