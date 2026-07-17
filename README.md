@@ -51,7 +51,7 @@
 | ☁️ **Cloud & Infra** | `AWS EC2` · `Lambda` · `VPC` · `EventBridge` · `S3` · `CloudWatch` · `IAM` · `K3s / Kubernetes` · `Docker` · `Nginx` |
 | 🟨 **IaC & Automation** | `Pulumi` · `Terraform` · `Ansible` · `GitHub Actions` · `Docker Swarm` |
 | 🟥 **Observability** | `OpenTelemetry` · `Grafana` · `Tempo` · `Loki` · `Prometheus` · `CloudWatch` |
-| 🟫 **Practices** | `Microservices` · `Distributed Systems` · `GitOps` · `Blue/Green` · `Fault Tolerance` |
+| 🟫 **Practices** | `Microservices` · `Distributed Systems` · `Blue/Green` · `Fault Tolerance` |
 
 ---
 
