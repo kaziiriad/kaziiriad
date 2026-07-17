@@ -31,11 +31,11 @@
 ⚡ 1.53ms     Go redirect P95 — 2–7× faster than Python baseline
 💰 60%         AWS cost reduction via ML-driven K3s autoscaling
 📈 99.82%      Cache hit rate · 1,000+ RPS · 0% errors (Snipl production)
-🟢 99.9%       Uptime across multi-AZ deployments
+🌐 Multi-AZ    Production-grade AWS deployments with IaC + observability
 🖥️  11+        EC2 instances automated across 3 AZs
 🔄 4-layer     Autoscaling architecture (time-aware · flash-sale · Prophet ML · reactive HPA)
 📦 1K+         Concurrent users load-tested
-🛢️  73         Public repos · 11 years shipping code
+📦 70+ OSS repos · 5 production systems shipped
 ```
 
 ---
